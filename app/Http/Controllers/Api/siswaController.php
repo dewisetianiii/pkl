@@ -18,8 +18,8 @@ class siswaController extends Controller
      */
     public function index()
     {
-        $siswa = siswa::all();
-        if (!$siswa) {
+        $siswa = Siswa::all();
+        if (count($siswa) < 0) {
             $response = [
                 'success' => false,
                 'data' => 'Empty',
@@ -68,9 +68,9 @@ class siswaController extends Controller
             $response = [
                 'success' => false,
                 'data' => 'Validator Error.',
-                'message' => $validator->error()
+                'message' => $validator->errors()
             ];
-            return response()->json($response, 500);
+            return response()->json($response, 404);
         }
 
         // 4. buat fungsi untuk menghandle semua inputan ->
