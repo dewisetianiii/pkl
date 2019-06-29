@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kategori;
+use App\kategori;
 use Session;
 use Auth;
 
@@ -16,7 +16,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = Kategori::orderBy('created_at', 'desc')->get();
+        $kategori = kategori::orderBy('created_at', 'desc')->get();
         return view('admin.kategori.index', compact('kategori'));
     }
 
@@ -27,7 +27,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        $kategori = Kategori::all();
+        $kategori = kategori::all();
         return view('admin.kategori.create');
     }
 
@@ -39,7 +39,7 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        $kategori = new Kategori();
+        $kategori = new kategori();
         $kategori->nama_kategori = $request->nama_kategori;
         $kategori->slug = str_slug($request->nama_kategori, '-');
         $kategori->save();
@@ -58,7 +58,7 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-        $kategori = Kategori::findOrFail($id);
+        $kategori = kategori::findOrFail($id);
         return view('admin.kategori.show', compact('kategori'));
     }
 
@@ -70,7 +70,7 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        $kategori = Kategori::findOrFail($id);
+        $kategori = kategori::findOrFail($id);
         return view('admin.kategori.edit', compact('kategori'));
     }
 
@@ -87,7 +87,7 @@ class KategoriController extends Controller
         $request->validate([
             'nama_kategori' => 'required',
         ]);
-        $kategori = Kategori::findOrFail($id);
+        $kategori = kategori::findOrFail($id);
         $kategori->nama_kategori = $request->nama_kategori;
         $kategori->slug = str_slug($request->nama_kategori, '-');
         $kategori->save();
@@ -106,7 +106,7 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        $kategori = Kategori::findOrFail($id);
+        $kategori = kategori::findOrFail($id);
         $old = $kategori->nama_kategori;
         $kategori->delete();
         return redirect()->route('kategori.index');
