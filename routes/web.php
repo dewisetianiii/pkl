@@ -11,6 +11,24 @@
 |
 */
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', function () {
+    return view('layouts.backend');
+});
+
+Route::get('dashboardfrontend', function () {
+    return view('dashboardfrontend');
+});
+
+Route::resource('kategori', 'KategoriController');
+Route::resource('tag', 'TagController');
+Route::resource('artikel', 'ArtikelController');
+Route::resource('review', 'ReviewController');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -29,11 +47,4 @@ Route::get('/contact', function () {
 
 Route::get('/single-post', function () {
     return view('single-post');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', function () {
-    return view('layouts.backend');
 });

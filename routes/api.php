@@ -18,3 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('siswa', 'Api\siswaController');
+Route::resource('kategori', 'Api\KategoriController');
+Route::resource('tag', 'Api\TagController');
+Route::resource('artikel', 'Api\ArtikelController');
+
+Route::resource('latest','Api\FrontendController@latest');

@@ -935,3 +935,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </body>
 
 </html>
+@section('name')
+    <script>
+        var url = 'api/json'
+        $.ajax({
+            url: url + '/latest',
+            dataType : 'json',
+            success : function(berhasil) {
+                $.each(berhasil.data, function(key, value){
+                    $(".berita-terakhir").append(
+                        `
+
+                        `
+                    )
+                })
+            },
+            error: function(gagal){
+                console.log(gagal)
+            }
+        });
+    </script>
+@endsection
