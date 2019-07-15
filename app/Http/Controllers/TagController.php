@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tag;
+use App\tag;
 use Session;
 use Auth;
 
@@ -16,7 +16,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tag = Tag::orderBy('created_at', 'desc')->get();
+        $tag = tag::orderBy('created_at', 'desc')->get();
         return view('admin.tag.index', compact('tag'));
     }
 
@@ -27,7 +27,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        $tag = Tag::all();
+        $tag = tag::all();
         return view('admin.tag.create', compact('tag'));
     }
 
@@ -39,7 +39,7 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $tag = new Tag();
+        $tag = new tag();
         $tag->nama_tag = $request->nama_tag;
         $tag->slug = str_slug($request->nama_tag, '-');
         $tag->save();
@@ -58,7 +58,7 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        $tag = Tag::findOrFail($id);
+        $tag = tag::findOrFail($id);
         return view('admin.tag.show', compact('tag'));
     }
 
@@ -70,7 +70,7 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        $tag = Tag::findOrFail($id);
+        $tag = tag::findOrFail($id);
         return view('admin.tag.edit', compact('tag'));
     }
 
@@ -86,7 +86,7 @@ class TagController extends Controller
         $request->validate([
             'nama_tag' => 'required',
         ]);
-        $tag = Tag::findOrFail($id);
+        $tag = tag::findOrFail($id);
         $tag->nama_tag = $request->nama_tag;
         $tag->slug = str_slug($request->nama_tag, '-');
         $tag->save();
@@ -105,7 +105,7 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        $tag = Tag::findOrFail($id);
+        $tag = tag::findOrFail($id);
          $tag->nama_tag;
         $tag->delete();
         return redirect()->route('tag.index');
