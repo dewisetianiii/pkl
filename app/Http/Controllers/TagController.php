@@ -7,7 +7,7 @@ use App\tag;
 use Session;
 use Auth;
 
-class TagController extends Controller
+class tagController extends Controller
 {
     /**
      * Display a listing of the resource.
