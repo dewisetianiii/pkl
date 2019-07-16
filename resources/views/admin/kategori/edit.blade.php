@@ -36,7 +36,7 @@
         </button>
     </div>
     <div class="form-group">
-        <a href="{{ url('kategori') }}" class="btn btn-outline-info">Kembali</a>
+        <a href="{{ url('/admin/kategori') }}" class="btn btn-outline-info">Kembali</a>
     </div>
         </form>
             </div>

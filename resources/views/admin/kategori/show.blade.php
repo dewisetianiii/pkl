@@ -28,7 +28,7 @@
         <input class="form-control" value="{{ $kategori->nama_kategori }}" type="text" name="nama_kategori" disabled>
     </div>
     <div class="form-group">
-        <a href="{{ url('/kategori') }}" class="btn btn-outline-info">Kembali</a>
+        <a href="{{ url('/admin/kategori') }}" class="btn btn-outline-info">Kembali</a>
     </div>
         </div>
             </div>

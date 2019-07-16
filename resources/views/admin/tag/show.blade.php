@@ -28,7 +28,7 @@
         <input class="form-control" value="{{ $tag->nama_tag }}" type="text" name="nama_tag" disabled>
     </div>
     <div class="form-group">
-        <a href="{{ url('/tag') }}" class="btn btn-outline-info">Kembali</a>
+        <a href="{{ url('/admin/tag') }}" class="btn btn-outline-info">Kembali</a>
     </div>
         </div>
             </div>
