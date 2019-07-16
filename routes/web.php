@@ -24,10 +24,14 @@ Route::get('dashboardfrontend', function () {
     return view('dashboardfrontend');
 });
 
-Route::resource('kategori', 'KategoriController');
-Route::resource('tag', 'TagController');
-Route::resource('artikel', 'ArtikelController');
-Route::resource('review', 'ReviewController');
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+
+    Route::resource('kategori', 'KategoriController');
+    Route::resource('tag', 'TagController');
+    Route::resource('artikel', 'ArtikelController');
+    Route::resource('review', 'ReviewController');
+
+});
 
 Route::get('/', function () {
     return view('welcome');
