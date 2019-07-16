@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kategori;
 use App\Tag;
-use App\artikel;
+use App\Artikel;
 use Session;
 use Auth;
 use Illuminate\Support\Facades\File;
