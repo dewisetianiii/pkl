@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kategori;
 use App\Tag;
-use App\Artikel;
+use App\artikel;
 use Session;
 use Auth;
 use Illuminate\Support\Facades\File;
@@ -20,7 +20,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $artikel = Artikel::orderBy('created_at', 'desc')->get();
+        $artikel = artikel::orderBy('created_at', 'desc')->get();
         return view('admin.artikel.index', compact('artikel'));
     }
 
@@ -52,7 +52,7 @@ class ArtikelController extends Controller
         // 'tag_id' => 'required'
         // ]);
 
-        $artikel = new Artikel;
+        $artikel = new artikel;
         $artikel->judul = $request->judul;
         $artikel->slug = str_slug($request->judul);
         $artikel->konten = $request->konten;
@@ -85,7 +85,7 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        $artikel = Artikel::findOrFail($id);
+        $artikel = artikel::findOrFail($id);
         $tag = Tag::all();
         $kategori = Kategori::all();
         $selected = $artikel->tag->pluck('id')->toArray();
@@ -100,7 +100,7 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        $artikel = Artikel::findOrFail($id);
+        $artikel = artikel::findOrFail($id);
         $kategori = Kategori::all();
         $tag = tag::all();
         $selected = $artikel->tag->pluck('id')->toArray();
@@ -123,7 +123,7 @@ class ArtikelController extends Controller
         //     'id_kategori' => 'required',
         //     'tag_id' => 'required']);
 
-        $artikel = Artikel::findOrFail($id);
+        $artikel = artikel::findOrFail($id);
         $artikel->judul = $request->judul;
         $artikel->slug = str_slug($request->judul);
         $artikel->konten = $request->konten;
@@ -162,7 +162,7 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-        $artikel = Artikel::findOrFail($id);
+        $artikel = artikel::findOrFail($id);
         if ($artikel->foto) {
             $old_foto = $artikel->foto;
             $filepath = public_path() . '/assets/img/artikel/' . $artikel->foto;
