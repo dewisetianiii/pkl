@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Session;
 
-class tag extends Model
+class Tag extends Model
 {
     protected $fillable = ['nama_tag', 'slug'];
     public $timestamps = true;

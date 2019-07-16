@@ -5,14 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Session;
 
-class kategori extends Model
+class Kategori extends Model
 {
     protected $fillable = ['nama_kategori','slug'];
     public $timestamps = true;
 
     public function artikel()
     {
-        return $this->hasMany('App\artikel', 'id_kategori');
+        return $this->hasMany('App\Artikel', 'id_kategori');
     }
 
     public static function boot()
