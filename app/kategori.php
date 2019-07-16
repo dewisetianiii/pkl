@@ -12,7 +12,7 @@ class kategori extends Model
 
     public function artikel()
     {
-        return $this->hasMany('App\Artikel', 'id_kategori');
+        return $this->hasMany('App\artikel', 'id_kategori');
     }
 
     public static function boot()

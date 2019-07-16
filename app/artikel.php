@@ -14,7 +14,7 @@ class artikel extends Model
 
     public function kategori()
     {
-        return $this->belongsTo('App\Kategori', 'id_kategori');
+        return $this->belongsTo('App\kategori', 'id_kategori');
     }
 
     public function user()
@@ -23,7 +23,7 @@ class artikel extends Model
     }
     public function tag()
     {
-        return $this->belongsToMany('App\Tag', 'artikel_tag', 'id_artikel', 'id_tag');
+        return $this->belongsToMany('App\tag', 'artikel_tag', 'id_artikel', 'id_tag');
     }
 
     public function getRouteKeyName()
