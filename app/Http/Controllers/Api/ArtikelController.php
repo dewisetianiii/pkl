@@ -16,7 +16,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $artikel = Artikel::all();
+        $artikel = Artikel::with('kategori','tag','user')->get();
         if (count($artikel) <= 0) {
             $respons = [
                 'success' => false,
